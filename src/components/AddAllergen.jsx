@@ -6,6 +6,9 @@ import React, { useState } from 'react'
 */
 import { allergens } from '../utilities/constants'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBan, faCheck, faPen, faTrash  } from '@fortawesome/free-solid-svg-icons'
+
 
 
 const AddAllergen = () => {
@@ -42,9 +45,9 @@ const AddAllergen = () => {
               </select>
             </td>
             <td><input disabled value={allergen.cas} /></td>
-            <td><input placeholder='percentage' /></td>
-            <td><button>annuleer</button></td>
-            <td><button>voeg toe</button></td>
+            <td><input placeholder="0.0578 voor 5.78%"/></td>
+            <td><FontAwesomeIcon icon={faBan} /></td>
+            <td><FontAwesomeIcon icon={faCheck} /></td>
           </tr >
           {allergens.map(a => {
             if (a.percentage && a.percentage > 0) {
@@ -53,8 +56,8 @@ const AddAllergen = () => {
                   <td>{a.name}</td>
                   <td>{a.cas}</td>
                   <td>{`${(a.percentage * 100).toFixed(6)}%`}</td>
-                  <td><button>pas aan</button></td>
-                  <td><button>verwijder</button></td>
+                  <td><FontAwesomeIcon icon={faPen} /></td>
+                  <td><FontAwesomeIcon icon={faTrash} /></td>
                 </tr>
               )
             }
