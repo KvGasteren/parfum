@@ -52,7 +52,7 @@ const AddAllergen = () => {
                 <tr>
                   <td>{a.name}</td>
                   <td>{a.cas}</td>
-                  <td>{`${a.percentage.toFixed(6)}%`}</td>
+                  <td>{`${(a.percentage * 100).toFixed(6)}%`}</td>
                   <td><button>pas aan</button></td>
                   <td><button>verwijder</button></td>
                 </tr>
