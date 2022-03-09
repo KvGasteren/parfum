@@ -15,7 +15,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 const AddAllergen = () => {
-  const [allergen, setAllergen] = useState({name: "", cas:""})
+  const [allergen, setAllergen] = useState({ name: '', cas: '' })
   const [allergenen, setAllergenen] = useState([])
 
   useEffect(() => {
@@ -52,13 +52,15 @@ const AddAllergen = () => {
           <tr style={{ borderBottom: '1px solid' }}>
             <td>
               <select value={allergen.name} onChange={changeAllergen}>
-                {allergenen.map((a) => {
-                  return (
-                    <option value={a.name} key={a.name}>
-                      {a.name}
-                    </option>
-                  )
-                })}
+                {allergenen
+                  .filter((a) => !a.percentage || a.percentage === 0)
+                  .map((a) => {
+                    return (
+                      <option key={a.name} value={a.name}>
+                        {a.name}
+                      </option>
+                    )
+                  })}
               </select>
             </td>
             <td>
@@ -67,9 +69,7 @@ const AddAllergen = () => {
             <td>
               <input placeholder='0.0578 voor 5.78%' />
             </td>
-            <td>
-              {/* <FontAwesomeIcon icon={faBan} /> */}
-            </td>
+            <td>{/* <FontAwesomeIcon icon={faBan} /> */}</td>
             <td>
               <FontAwesomeIcon icon={faCheck} />
             </td>
