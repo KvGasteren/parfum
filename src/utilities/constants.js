@@ -1,9 +1,7 @@
 export const allergens = [
   {
     name: "Amyl cinnamal",
-    cas: "122-40-7",
-    percentage: 0.014
-
+    cas: "122-40-7"
   },
   {
     name: "Benzyl alcohol",
